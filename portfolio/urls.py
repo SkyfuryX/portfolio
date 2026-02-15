@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from projects.views import HomePage
+from projects.views import HomePage, EditProj, AddProj, ViewProj
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', HomePage.as_view())
+    path('', HomePage.as_view(),name= "home"),
+    path('<slug>', ViewProj.as_view()),
+    path('<slug>=slug/edit', EditProj.as_view(), name="edit"),
+    path('<slug>=slug/new', AddProj.as_view(), name="add"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
