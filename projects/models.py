@@ -17,6 +17,7 @@ class Project(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     slug = models.SlugField(default="", null=False)
+    repo = models.CharField(max_length=100, blank = True)
     
     def __str__(self):
         return self.title
