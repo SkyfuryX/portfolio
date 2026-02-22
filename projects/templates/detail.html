@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{object.title}} - {{ block.super }}
+{% endblock title %}
+
+
+{% block main%}
+<section class="py-5 text-center container">
+  <div class="row py-lg-2">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">{{object.title}}</h1>
+    </div>
+  </div>
+</section>
+<div class="py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="col">
+      {% if object.image is not None %}
+      <img src={{object.images.cover_image}} class="img_fluid" alt="{{object.title}}">
+      {% endif %}
+    </div>
+    <div class="col">
+      <p>Project Overview: {{object.description}}</p>
+      <p>Technolgies Used: {{object.tech}}</p>
+      <p><a href={{object.repo}}> View Project</p>
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+  <a href={% url 'home' %}>
+    <button class="btn btn-primary my-2 text-center">Back
+    </button>
+  </a>
+</div>
+
+{% endblock %}

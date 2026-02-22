@@ -1,9 +1,9 @@
 from django.db import models
 from datetime import datetime
-from django.utils.text import slugify
+from django_resized import ResizedImageField
 
 class Project(models.Model):
-    cover_image = models.ImageField(upload_to="images", null=True, blank=True)
+    images = models.ForeignKey('ProjectImage', on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=100)
     LangChoices = {
         "PY" : "Python",
@@ -22,3 +22,10 @@ class Project(models.Model):
     def __str__(self):
         return self.title
     
+class ProjectImage(models.Model):
+    title = models.ForeignKey(Project, on_delete=models.PROTECT)
+    cover_image = models.ImageField(upload_to="images", null=True, blank=True)
+    thumbnail = ResizedImageField(size=[425, 225], crop=['top', 'center'], upload_to="thumbnails", blank=True)
+    
+    def __str__(self):
+        return self.title.title

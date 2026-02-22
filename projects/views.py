@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Project
 from datetime import date
 
@@ -13,11 +14,16 @@ class HomePage(ListView):
         context['today'] = date.today()
         return context
     
-class ViewProj(DetailView):
+class ProjectDetail(DetailView):
     model = Project
+    slug_field = "slug"
+    template_name = "detail.html"    
 
-class EditProj(UpdateView):
+class ProjectEdit(LoginRequiredMixin, UpdateView):
     model = Project
+    slug_field = "slug"
+    login_url = 'home'
 
-class AddProj(CreateView):
+class ProjectNew(LoginRequiredMixin, CreateView):
     model = Project
+    login_url = 'home'

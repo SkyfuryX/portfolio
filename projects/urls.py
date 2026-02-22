@@ -16,11 +16,11 @@ Including another URLconf
 """
 
 from django.urls import path
-from projects.views import HomePage, EditProj, AddProj, ViewProj
+from projects.views import HomePage, ProjectDetail, ProjectEdit, ProjectNew
 
 urlpatterns = [
     path('', HomePage.as_view(),name= "home"),
-    path('<slug>=slug', ViewProj.as_view(), name = 'detail'),
-    path('<slug>=slug/edit', EditProj.as_view(), name="edit"),
-    path('<slug>=slug/new', AddProj.as_view(), name="new"),
+    path('<slug>/', ProjectDetail.as_view(), name = 'detail'),
+    path('<slug>/edit', ProjectEdit.as_view(), name="edit"),
+    path('new', ProjectNew.as_view(), name="new"),
 ]
