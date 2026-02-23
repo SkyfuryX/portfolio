@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 from dotenv import dotenv_values
 
 config = dotenv_values('./.env')
@@ -27,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -77,7 +76,18 @@ TEMPLATES = [
 STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        # "BACKEND": "storages.backends.s3.S3Storage"
     },
+    "default": {
+       "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "access_key": config["S3_ACCESS"],
+            "secret_key": config["S3_SECRET"],
+            "bucket_name": config["S3_BUCKET"],
+            "region_name": config["S3_REGION"],
+            "endpoint_url": config["S3_ENDPOINT"],
+        }
+    }
 }
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
@@ -141,5 +151,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / 'staticfiles/'
