@@ -6,32 +6,34 @@
 
 
 {% block main%}
-<section class="py-5 text-center container">
+<section class="py-3 text-center container">
   <div class="row py-lg-2">
     <div class="col-lg-6 col-md-8 mx-auto">
       <h1 class="fw-light">{{object.title}}</h1>
     </div>
   </div>
 </section>
-<div class="py-5 bg-body-tertiary">
+<div class="py-2 bg-body-tertiary">
   <div class="container">
-    <div class="col">
-      {% if object.image is not None %}
-      <img src={{object.images.cover_image}} class="img_fluid" alt="{{object.title}}">
-      {% endif %}
-    </div>
-    <div class="col">
-      <p>Project Overview: {{object.description}}</p>
-      <p>Technolgies Used: {{object.tech}}</p>
-      <p><a href={{object.repo}}> View Project</p>
-      <p></p>
-      <p></p>
+    <div class = "row">
+      <div class="col">
+        <img src={{object.images.cover_image.url}} class="img-fluid" alt="{{object.title}}">
+      </div>
+      <div class="col">
+        <p><strong>Project Overview:</strong>{{object.description|linebreaks}}</p>
+        <p><strong>Technolgies Used:</strong> {{object.tech}}</p>
+        <p class="text-center"><a href={{object.repo}} target= "_blank">View Project</p>
+        <p></p>
+        <p></p>
+      </div>
     </div>
   </div>
-  <a href={% url 'home' %}>
-    <button class="btn btn-primary my-2 text-center">Back
-    </button>
-  </a>
+  <div class="py-2 text-center">
+    <a href={% url 'home' %}>
+      <button class="btn btn-primary my-2 text-center">Back</button>
+      
+    </a>
+  </div>
 </div>
 
 {% endblock %}
