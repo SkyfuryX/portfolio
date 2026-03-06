@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Project
+from .models import Project, ProjectImage
 from datetime import date
 
 class HomePage(ListView):
@@ -21,9 +21,25 @@ class ProjectDetail(DetailView):
 
 class ProjectEdit(LoginRequiredMixin, UpdateView):
     model = Project
+    fields = ["title",'language',"tech","description","start_date","end_date","repo"]
     slug_field = "slug"
+    template_name = "edit.html"
+    success_url = '/'
     login_url = 'home'
 
 class ProjectNew(LoginRequiredMixin, CreateView):
     model = Project
     login_url = 'home'
+    fields = ["title",'language',"tech","description","start_date","end_date","repo"]
+    template_name = "edit.html"
+    success_url = '/'
+
+    
+class ImageNew(LoginRequiredMixin, CreateView):
+    model = ProjectImage
+    login_url = 'home'
+    fields = ["title", "cover_image", "thumbnail"]
+    template_name = "edit.html"
+    success_url = '/'
+
+    
