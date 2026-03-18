@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Project, ProjectImage
 from datetime import date
@@ -42,4 +43,6 @@ class ImageNew(LoginRequiredMixin, CreateView):
     template_name = "edit.html"
     success_url = '/'
 
-    
+class Logout(LogoutView):
+    template_name = 'logout.html'
+    next_page = 'home'
