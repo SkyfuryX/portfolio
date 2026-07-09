@@ -43,6 +43,6 @@ class ImageNew(LoginRequiredMixin, CreateView):
     template_name = "edit.html"
     success_url = '/'
 
-class Logout(LogoutView):
+class Logout(LoginRequiredMixin, LogoutView):
     template_name = 'logout.html'
     next_page = 'home'

@@ -98,16 +98,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': config['USER'], 
-        'PASSWORD': config['PASSWORD'],
+        'ENGINE': 'portfolio.db_backend',
         'HOST': config['HOST'],
-        'PORT': config['PORT'] ,
-        'NAME': config['NAME'],
+        'PORT': config['PORT'],
+        'NAME': config['DBNAME'],
+        'USER': config['USER'],
+        'PASSWORD': "", #password handled by backed wrapper
         'OPTIONS': {
-            "pool": True,
+            'sslmode': 'require',
+            'sslrootcert': '../global-bundle.pem'
         },
-        "DISABLE_SERVER_SIDE_CURSORS": True,
     }
 }
 
