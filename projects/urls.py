@@ -22,7 +22,7 @@ urlpatterns = [
     path('', HomePage.as_view(),name= "home"),
     path('<slug>/', ProjectDetail.as_view(), name = 'detail'),
     path('<slug>/edit', ProjectEdit.as_view(), name="edit"),
-    path('new', ProjectNew.as_view(), name="newproj"),
-    path('new', ImageNew.as_view(), name="newimage"),
+    path('newproject', ProjectNew.as_view(), name="newproj"),
+    path('newimage', ImageNew.as_view(), name="newimage"),
     path('logout', Logout.as_view(), name="logout"),
 ]

@@ -14,7 +14,7 @@ class DatabaseWrapper(PostgresWrapper):
             Port=int(conn_params['port']), 
             DBUsername=conn_params['user'], 
             Region=config['REGION'])
-        conn_params['password'] = auth_token.strip()     
+        conn_params['password'] = auth_token     
         return conn_params
     
     def get_new_connection(self, conn_params):

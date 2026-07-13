@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio',
     'projects',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -73,19 +74,36 @@ TEMPLATES = [
     },
 ]
 
+# AWS Credentials & Region
+AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = config['S3_BUCKET_NAME']
+AWS_S3_REGION_NAME = config['REGION']
+
+# Bucket Settings & Security
+AWS_S3_SIGNATURE_VERSION = 's3v4'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = True
+AWS_S3_ADDRESSING_STYLE = 'virtual'
+
+# Encryption Settings (Passed globally to all objects)
+AWS_S3_OBJECT_PARAMETERS = {
+    'ServerSideEncryption': 'aws:kms',
+    'SSEKMSKeyId': config['AWS_KMS_KEY_ARN'],
+}
+
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-        # "BACKEND": "storages.backends.s3.S3Storage"
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        "OPTIONS": {
+            "location": "static",
+        }
     },
     "default": {
-       "BACKEND": "storages.backends.s3.S3Storage",
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": {
-            "access_key": config["S3_ACCESS"],
-            "secret_key": config["S3_SECRET"],
-            "bucket_name": config["S3_BUCKET"],
-            "region_name": config["S3_REGION"],
-            "endpoint_url": config["S3_ENDPOINT"],
+            "location": "media",
         }
     }
 }
@@ -105,8 +123,8 @@ DATABASES = {
         'USER': config['USER'],
         'PASSWORD': "", #password handled by backed wrapper
         'OPTIONS': {
-            'sslmode': 'require',
-            'sslrootcert': '../global-bundle.pem'
+            'sslmode': 'verify-full',
+            'sslrootcert': './global-bundle.pem'
         },
     }
 }
@@ -146,11 +164,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-STATIC_ROOT = BASE_DIR / 'staticfiles/'
+STATIC_URL =  f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/static/'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'

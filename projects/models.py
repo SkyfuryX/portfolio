@@ -1,6 +1,7 @@
 from django.db import models
-from datetime import datetime
-from django_resized import ResizedImageField
+from django.core.files.base import ContentFile
+from PIL import Image,ImageOps
+import io
 
 class Project(models.Model):
     images = models.ForeignKey('ProjectImage', on_delete=models.CASCADE, blank=True, null=True)
@@ -25,7 +26,23 @@ class Project(models.Model):
 class ProjectImage(models.Model):
     title = models.ForeignKey(Project, on_delete=models.PROTECT)
     cover_image = models.ImageField(upload_to="images", null=True, blank=True)
-    thumbnail = ResizedImageField(size=[425, 225], crop=['top', 'center'], upload_to="thumbnails", blank=True)
+    thumbnail = models.ImageField(upload_to="thumbnails", null=True, blank=True)
     
     def __str__(self):
         return self.title.title
+
+    def save(self, *args, **kwargs):
+        # handle the resize safely for S3
+        if self.thumbnail:
+            img = Image.open(self.thumbnail)
+            img = ImageOps.fit(img, (425, 225), method=Image.Resampling.LANCZOS)
+    
+            #temporarily save in buffer
+            buffer = io.BytesIO()
+            img_format = img.format if img.format else 'JPEG'
+            img.save(buffer, format=img_format, quality=85)
+            
+            filename = self.thumbnail.name
+            self.thumbnail.save(filename, ContentFile(buffer.getvalue()), save=False)
+            
+        super().save(*args, **kwargs)
