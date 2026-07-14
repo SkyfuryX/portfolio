@@ -1,19 +1,18 @@
 from django.db.backends.postgresql.base import DatabaseWrapper as PostgresWrapper
-import boto3, time
+import boto3, time, os
 from psycopg2 import OperationalError
-from dotenv import dotenv_values
 
-config = dotenv_values('./.env')
+REGION = os.environ.get("REGION")
 
 class DatabaseWrapper(PostgresWrapper):        
     
     def get_connection_params(self):
         conn_params = super().get_connection_params()
-        auth_token = boto3.client('rds', region_name=config['REGION']).generate_db_auth_token(
+        auth_token = boto3.client('rds', region_name=REGION).generate_db_auth_token(
             DBHostname=conn_params['host'], 
             Port=int(conn_params['port']), 
             DBUsername=conn_params['user'], 
-            Region=config['REGION'])
+            Region=REGION)
         conn_params['password'] = auth_token     
         return conn_params
     

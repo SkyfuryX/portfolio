@@ -1,0 +1,282 @@
+Retrieving logs...
+============= i-02f852d6ccb7716b7 ==============
+----------------------------------------
+/var/log/web.stdout.log
+----------------------------------------
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:                      ^^^^^^^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/conf/__init__.py", line 75, in __getattr__
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:    self._setup(name)
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:    ~~~~~~~~~~~^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/conf/__init__.py", line 62, in _setup
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:    self._wrapped = Settings(settings_module)
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:                    ~~~~~~~~^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/conf/__init__.py", line 162, in __init__
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:    mod = importlib.import_module(self.SETTINGS_MODULE)
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "/usr/lib64/python3.14/importlib/__init__.py", line 88, in import_module
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:    return _bootstrap._gcd_import(name[level:], package, level)
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:  File "/var/app/current/portfolio/settings.py", line 26, in <module>
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:    SECRET_KEY = config['SECRET_KEY']
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]:                 ~~~~~~^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]: KeyError: 'SECRET_KEY'
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]: 'SECRET_KEY'
+Jul 14 21:24:33 ip-172-31-0-149 web[5106]: [2026-07-14 21:24:33 +0000] [5106] [INFO] Worker exiting (pid: 5106)
+Jul 14 21:24:33 ip-172-31-0-149 web[5102]: [2026-07-14 21:24:33 +0000] [5102] [ERROR] Worker (pid:5106) exited with code 3.
+Jul 14 21:24:33 ip-172-31-0-149 web[5102]: [2026-07-14 21:24:33 +0000] [5102] [ERROR] Shutting down: Master
+Jul 14 21:24:33 ip-172-31-0-149 web[5102]: [2026-07-14 21:24:33 +0000] [5102] [ERROR] Reason: Worker failed to boot.
+Jul 14 21:24:33 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:33 +0000] [5109] [INFO] Starting gunicorn 26.0.0
+Jul 14 21:24:33 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:33 +0000] [5109] [INFO] Listening at: http://127.0.0.1:5432 (5109)
+Jul 14 21:24:33 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:33 +0000] [5109] [INFO] Using worker: gthread
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]: [2026-07-14 21:24:33 +0000] [5113] [INFO] Booting worker with pid: 5113
+Jul 14 21:24:33 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:33 +0000] [5109] [INFO] Control socket listening at /home/webapp/.gunicorn/gunicorn.ctl
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]: [2026-07-14 21:24:33 +0000] [5113] [ERROR] Exception in worker process
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]: Traceback (most recent call last):
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/arbiter.py", line 713, in spawn_worker
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    worker.init_process()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    ~~~~~~~~~~~~~~~~~~~^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/workers/gthread.py", line 243, in init_process
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    super().init_process()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    ~~~~~~~~~~~~~~~~~~~~^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/workers/base.py", line 136, in init_process
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    self.load_wsgi()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    ~~~~~~~~~~~~~~^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/workers/base.py", line 148, in load_wsgi
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    self.wsgi = self.app.wsgi()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:                ~~~~~~~~~~~~~^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/app/base.py", line 66, in wsgi
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    self.callable = self.load()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:                    ~~~~~~~~~^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/app/wsgiapp.py", line 57, in load
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    return self.load_wsgiapp()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:           ~~~~~~~~~~~~~~~~~^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/app/wsgiapp.py", line 47, in load_wsgiapp
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    return util.import_app(self.app_uri)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/gunicorn/util.py", line 411, in import_app
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    mod = importlib.import_module(module)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/usr/lib64/python3.14/importlib/__init__.py", line 88, in import_module
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    return _bootstrap._gcd_import(name[level:], package, level)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/current/portfolio/wsgi.py", line 16, in <module>
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    application = get_wsgi_application()
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    django.setup(set_prefix=False)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/__init__.py", line 19, in setup
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:                      ^^^^^^^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/conf/__init__.py", line 75, in __getattr__
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    self._setup(name)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    ~~~~~~~~~~~^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/conf/__init__.py", line 62, in _setup
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    self._wrapped = Settings(settings_module)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:                    ~~~~~~~~^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/venv/staging-LQM1lest/lib64/python3.14/site-packages/django/conf/__init__.py", line 162, in __init__
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    mod = importlib.import_module(self.SETTINGS_MODULE)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/usr/lib64/python3.14/importlib/__init__.py", line 88, in import_module
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    return _bootstrap._gcd_import(name[level:], package, level)
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 1406, in _gcd_import
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:  File "/var/app/current/portfolio/settings.py", line 26, in <module>
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:    SECRET_KEY = config['SECRET_KEY']
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]:                 ~~~~~~^^^^^^^^^^^^^^
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]: KeyError: 'SECRET_KEY'
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]: 'SECRET_KEY'
+Jul 14 21:24:33 ip-172-31-0-149 web[5113]: [2026-07-14 21:24:33 +0000] [5113] [INFO] Worker exiting (pid: 5113)
+Jul 14 21:24:34 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:34 +0000] [5109] [ERROR] Worker (pid:5113) exited with code 3.
+Jul 14 21:24:34 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:34 +0000] [5109] [ERROR] Shutting down: Master
+Jul 14 21:24:34 ip-172-31-0-149 web[5109]: [2026-07-14 21:24:34 +0000] [5109] [ERROR] Reason: Worker failed to boot.
+
+
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+2026/07/14 21:25:09.167921 [INFO] this command is applicable to the instance, thus instance should execute command
+2026/07/14 21:25:09.167934 [INFO] Setting up deployment log with request ID: b4bbdc91-76ac-466e-8735-ec12fb5cbeeb
+2026/07/14 21:25:09.229763 [INFO] Started S3 deployment log upload to s3://elasticbeanstalk-us-east-1-195275666104/resources/environments/logs/deployments/e-khknbi2kjm/eb-deployment-b4bbdc91-76ac-466e-8735-ec12fb5cbeeb.log
+2026/07/14 21:25:09.229832 [INFO] Engine command: (restart-app-server)
+
+2026/07/14 21:25:09.229846 [INFO] Using manifest file name from command request
+2026/07/14 21:25:09.229860 [INFO] Unable to get version manifest file.
+2026/07/14 21:25:09.229862 [INFO] Downloading latest manifest available.
+2026/07/14 21:25:09.229865 [INFO] Download latest app version manifest
+2026/07/14 21:25:09.230034 [INFO] resources/environments/e-khknbi2kjm/_runtime/versions/manifest
+2026/07/14 21:25:09.269768 [INFO] latestManifest key *: resources/environments/e-khknbi2kjm/_runtime/versions/manifest_1784064257529
+
+2026/07/14 21:25:09.270050 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-195275666104, object: resources/environments/e-khknbi2kjm/_runtime/versions/manifest_1784064257529, expected bucket owner: 195275666104
+2026/07/14 21:25:09.316175 [INFO] Download successful141bytes downloaded
+2026/07/14 21:25:09.316373 [INFO] Trying to read and parse version manifest...
+2026/07/14 21:25:09.316601 [INFO] Executing instruction: stopSqsd
+2026/07/14 21:25:09.316613 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2026/07/14 21:25:09.316619 [INFO] Executing instruction: configure X-Ray
+2026/07/14 21:25:09.316622 [INFO] X-Ray is not enabled.
+2026/07/14 21:25:09.316625 [INFO] Executing instruction: stop X-Ray
+2026/07/14 21:25:09.316627 [INFO] stop X-Ray ...
+2026/07/14 21:25:09.316636 [INFO] Running command: systemctl show -p PartOf xray.service
+2026/07/14 21:25:09.331717 [WARN] stopProcess Warning: process xray is not registered 
+2026/07/14 21:25:09.331751 [INFO] Running command: systemctl stop xray.service
+2026/07/14 21:25:09.347040 [INFO] Executing instruction: start X-Ray
+2026/07/14 21:25:09.347066 [INFO] X-Ray is not enabled.
+2026/07/14 21:25:09.347071 [INFO] Executing instruction: RestartAppServer
+2026/07/14 21:25:09.347088 [INFO] Running command: systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2026/07/14 21:25:09.357308 [INFO] web.service
+
+2026/07/14 21:25:09.357381 [INFO] Restarting customer application...
+2026/07/14 21:25:09.357405 [INFO] Running command: systemctl show -p PartOf nginx.service
+2026/07/14 21:25:09.368037 [INFO] Running command: systemctl stop nginx.service
+2026/07/14 21:25:09.538806 [INFO] Running command: systemctl restart eb-app.target
+2026/07/14 21:25:09.549140 [INFO] Running command: systemctl show -p PartOf nginx.service
+2026/07/14 21:25:09.562262 [INFO] Running command: systemctl is-active nginx.service
+2026/07/14 21:25:09.571939 [INFO] Running command: systemctl start nginx.service
+2026/07/14 21:25:11.649826 [INFO] Executing instruction: configureSqsd
+2026/07/14 21:25:11.649852 [INFO] This is a web server environment instance, skip configure sqsd daemon ...
+2026/07/14 21:25:11.649862 [INFO] Executing instruction: startSqsd
+2026/07/14 21:25:11.649865 [INFO] This is a web server environment instance, skip start sqsd daemon ...
+2026/07/14 21:25:11.649869 [INFO] Executing instruction: Track pids in healthd
+2026/07/14 21:25:11.649874 [INFO] This is an enhanced health env...
+2026/07/14 21:25:11.649891 [INFO] Running command: systemctl show -p ConsistsOf aws-eb.target | cut -d= -f2
+2026/07/14 21:25:11.660286 [INFO] nginx.service healthd.service cfn-hup.service
+
+2026/07/14 21:25:11.660324 [INFO] Running command: systemctl show -p ConsistsOf eb-app.target | cut -d= -f2
+2026/07/14 21:25:11.669796 [INFO] web.service
+
+2026/07/14 21:25:11.669932 [WARN] failed to read file /var/pids/web.pid with error: open /var/pids/web.pid: no such file or directory
+2026/07/14 21:25:12.670104 [WARN] failed to read file /var/pids/web.pid with error: open /var/pids/web.pid: no such file or directory
+2026/07/14 21:25:14.670928 [WARN] failed to read file /var/pids/web.pid with error: open /var/pids/web.pid: no such file or directory
+2026/07/14 21:25:17.671164 [WARN] failed to read file /var/pids/web.pid with error: open /var/pids/web.pid: no such file or directory
+2026/07/14 21:25:21.671412 [WARN] failed to read file /var/pids/web.pid with error: open /var/pids/web.pid: no such file or directory
+2026/07/14 21:25:26.671641 [WARN] failed to read file /var/pids/web.pid with error: open /var/pids/web.pid: no such file or directory
+2026/07/14 21:25:26.671691 [ERROR] update processes [web nginx healthd cfn-hup] pid symlinks failed with error failed to read file /var/pids/web.pid after 6 attempts
+2026/07/14 21:25:26.671710 [ERROR] An error occurred during execution of command [restart-app-server] - [Track pids in healthd]. Stop running the command. Error: update processes [web nginx healthd cfn-hup] pid symlinks failed with error failed to read file /var/pids/web.pid after 6 attempts 
+
+2026/07/14 21:25:26.671720 [INFO] Executing cleanup logic
+2026/07/14 21:25:26.671850 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[{"msg":"Instance deployment failed. For details, see 'eb-engine.log'.","timestamp":1784064326671,"severity":"ERROR"}]}]}
+
+2026/07/14 21:25:26.724643 [INFO] Platform Engine finished execution on command: restart-app-server
+
+2026/07/14 21:31:26.869638 [INFO] Starting...
+2026/07/14 21:31:26.869710 [INFO] Starting EBPlatform-PlatformEngine
+2026/07/14 21:31:26.869733 [INFO] reading event message file
+2026/07/14 21:31:26.870326 [INFO] Engine received EB command cfn-hup-exec
+
+2026/07/14 21:31:26.969422 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:195275666104:stack/awseb-e-khknbi2kjm-stack/ebcd1680-7fc4-11f1-b1e6-12fb09e08ac7 -r AWSEBAutoScalingGroup --region us-east-1
+2026/07/14 21:31:27.239532 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:195275666104:stack/awseb-e-khknbi2kjm-stack/ebcd1680-7fc4-11f1-b1e6-12fb09e08ac7 -r AWSEBBeanstalkMetadata --region us-east-1
+2026/07/14 21:31:27.520601 [INFO] checking whether command tail-log is applicable to this instance...
+2026/07/14 21:31:27.520614 [INFO] this command is applicable to the instance, thus instance should execute command
+2026/07/14 21:31:27.520618 [INFO] Engine command: (tail-log)
+
+2026/07/14 21:31:27.520669 [INFO] Executing instruction: GetTailLogs
+2026/07/14 21:31:27.520674 [INFO] Tail Logs...
+2026/07/14 21:31:27.521110 [INFO] Running command: tail -n 100 /var/log/web.stdout.log
+2026/07/14 21:31:27.523854 [INFO] Running command: tail -n 100 /var/log/eb-engine.log
+2026/07/14 21:31:27.526097 [INFO] Running command: tail -n 100 /var/log/nginx/access.log
+2026/07/14 21:31:27.528023 [INFO] Running command: tail -n 100 /var/log/nginx/error.log
+2026/07/14 21:31:27.622467 [INFO] Executing cleanup logic
+2026/07/14 21:31:27.622576 [INFO] CommandService Response: {"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"Engine execution has succeeded.","returncode":0,"events":[{"msg":"Instance deployment completed successfully.","timestamp":1784064687622,"severity":"INFO"}]}]}
+
+2026/07/14 21:31:27.622602 [INFO] Platform Engine finished execution on command: tail-log
+
+2026/07/14 21:32:46.814159 [INFO] Starting...
+2026/07/14 21:32:46.814224 [INFO] Starting EBPlatform-PlatformEngine
+2026/07/14 21:32:46.814247 [INFO] reading event message file
+2026/07/14 21:32:46.814845 [INFO] Engine received EB command cfn-hup-exec
+
+2026/07/14 21:32:46.896025 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:195275666104:stack/awseb-e-khknbi2kjm-stack/ebcd1680-7fc4-11f1-b1e6-12fb09e08ac7 -r AWSEBAutoScalingGroup --region us-east-1
+2026/07/14 21:32:47.145519 [INFO] Running command: /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:195275666104:stack/awseb-e-khknbi2kjm-stack/ebcd1680-7fc4-11f1-b1e6-12fb09e08ac7 -r AWSEBBeanstalkMetadata --region us-east-1
+2026/07/14 21:32:47.381189 [INFO] checking whether command tail-log is applicable to this instance...
+2026/07/14 21:32:47.381207 [INFO] this command is applicable to the instance, thus instance should execute command
+2026/07/14 21:32:47.381213 [INFO] Engine command: (tail-log)
+
+2026/07/14 21:32:47.381271 [INFO] Executing instruction: GetTailLogs
+2026/07/14 21:32:47.381275 [INFO] Tail Logs...
+2026/07/14 21:32:47.381639 [INFO] Running command: tail -n 100 /var/log/web.stdout.log
+2026/07/14 21:32:47.384364 [INFO] Running command: tail -n 100 /var/log/eb-engine.log
+
+
+----------------------------------------
+/var/log/nginx/access.log
+----------------------------------------
+68.196.80.73 - - [14/Jul/2026:20:49:40 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:20:49:40 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:20:53:56 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:20:53:57 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:09:02 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:09:02 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+91.230.168.238 - - [14/Jul/2026:21:13:59 +0000] "\x16\x03\x03\x02c\x01\x00\x02_\x03\x03\xB1\xF0\x1E\x9F\x8C\x1A\xFC\x96\xD1y14\x8D\xED\xEFx)\xF4\xB0\xD4a\xA3\x1AM\xA2\xC1\x14\xAF\x96\xFC\x8B\xCE \xD7\x1Dc\xAAr\xC2O\xCAX\xBE\x8B\xF1r\xD1\xC3\x03{\xF4\xEE\xF1(H\xEA\xE2\x22\xA9\xFB8&\x96\xA9\xC1\x00\x8A\x00\x16\x003\x00g\xC0\x9E\xC0\xA2\x00\x9E\x009\x00k\xC0\x9F\xC0\xA3\x00\x9F\x00E\x00\xBE\x00\x88\x00\xC4\x00\x9A\xC0\x08\xC0\x09\xC0#\xC0\xAC\xC0\xAE\xC0+\xC0" 400 150 "-" "-" "-"
+91.230.168.129 - - [14/Jul/2026:21:14:02 +0000] "GET / HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" "-"
+68.196.80.73 - - [14/Jul/2026:21:15:45 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:15:45 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+91.230.168.235 - - [14/Jul/2026:21:16:32 +0000] "GET /favicon.ico HTTP/1.1" 502 150 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" "-"
+68.196.80.73 - - [14/Jul/2026:21:20:45 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:20:45 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:20:48 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:20:48 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:21:01 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:21:01 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:22:03 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:22:03 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:22:07 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:22:07 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:31:13 +0000] "GET / HTTP/1.1" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+68.196.80.73 - - [14/Jul/2026:21:31:13 +0000] "GET /favicon.ico HTTP/1.1" 502 552 "http://gshanley.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36" "-"
+
+
+----------------------------------------
+/var/log/nginx/error.log
+----------------------------------------
+2026/07/14 20:47:23 [warn] 2604#2604: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 20:47:23 [warn] 2641#2641: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 20:47:23 [warn] 2642#2642: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 20:49:40 [error] 2644#2644: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 20:49:40 [error] 2644#2644: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 20:53:56 [error] 2644#2644: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 20:53:57 [error] 2644#2644: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:09:02 [error] 2644#2644: *9 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:09:02 [error] 2644#2644: *9 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:13:59 [warn] 2644#2644: *13 using uninitialized "year" variable while logging request, client: 91.230.168.238, server: , request: "c _�������y14���x)���a�M������� �c�r�O�X���r��{���(H��"��8&��� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2026/07/14 21:13:59 [warn] 2644#2644: *13 using uninitialized "month" variable while logging request, client: 91.230.168.238, server: , request: "c _�������y14���x)���a�M������� �c�r�O�X���r��{���(H��"��8&��� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2026/07/14 21:13:59 [warn] 2644#2644: *13 using uninitialized "day" variable while logging request, client: 91.230.168.238, server: , request: "c _�������y14���x)���a�M������� �c�r�O�X���r��{���(H��"��8&��� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2026/07/14 21:13:59 [warn] 2644#2644: *13 using uninitialized "hour" variable while logging request, client: 91.230.168.238, server: , request: "c _�������y14���x)���a�M������� �c�r�O�X���r��{���(H��"��8&��� �  3 g���� � 9 k���� � E � � � ��	�#�����+�"
+2026/07/14 21:14:02 [error] 2644#2644: *14 connect() failed (111: Connection refused) while connecting to upstream, client: 91.230.168.129, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "54.235.222.241"
+2026/07/14 21:15:01 [warn] 4102#4102: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:15:03 [warn] 4137#4137: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:15:03 [warn] 4138#4138: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:15:45 [error] 4141#4141: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:15:45 [error] 4141#4141: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:16:32 [error] 4141#4141: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 91.230.168.235, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "54.235.222.241"
+2026/07/14 21:20:45 [error] 4141#4141: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:20:45 [error] 4141#4141: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:20:48 [error] 4141#4141: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:20:48 [error] 4141#4141: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:21:01 [error] 4141#4141: *13 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:21:01 [error] 4141#4141: *13 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:22:03 [error] 4141#4141: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:22:03 [error] 4141#4141: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:22:07 [error] 4141#4141: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:22:07 [error] 4141#4141: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+2026/07/14 21:24:29 [warn] 5023#5023: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:24:29 [warn] 5060#5060: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:24:29 [warn] 5061#5061: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:25:09 [warn] 5200#5200: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:25:09 [warn] 5201#5201: could not build optimal types_hash, you should increase either types_hash_max_size: 1024 or types_hash_bucket_size: 64; ignoring types_hash_bucket_size
+2026/07/14 21:31:13 [error] 5204#5204: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5432/", host: "gshanley.us-east-1.elasticbeanstalk.com"
+2026/07/14 21:31:13 [error] 5204#5204: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 68.196.80.73, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:5432/favicon.ico", host: "gshanley.us-east-1.elasticbeanstalk.com", referrer: "http://gshanley.us-east-1.elasticbeanstalk.com/"
+
+

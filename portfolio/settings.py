@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import dotenv_values
-
-config = dotenv_values('./.env')
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,22 +21,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['SECRET_KEY']
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-# Force HTTP to HTTPS redirection
-SECURE_SSL_REDIRECT = True
+# SSL Configuration for AWS Reverse Proxy
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
-# Secure cookies from being intercepted over HTTP
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-
-# Enable HTTP Strict Transport Security (HSTS)
-SECURE_HSTS_SECONDS = 31536000  # 1 year
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_SECONDS = 31536000  # 1 year
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
 
 # Hosts
 ALLOWED_HOSTS = ['127.0.0.1', 'gshanley.us-east-1.elasticbeanstalk.com']
@@ -88,10 +83,10 @@ TEMPLATES = [
 ]
 
 # AWS Credentials & Region
-AWS_ACCESS_KEY_ID = config['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = config['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = config['S3_BUCKET_NAME']
-AWS_S3_REGION_NAME = config['REGION']
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
+AWS_S3_REGION_NAME = os.environ.get('REGION')
 
 # Bucket Settings & Security
 AWS_S3_SIGNATURE_VERSION = 's3v4'
@@ -103,7 +98,7 @@ AWS_S3_ADDRESSING_STYLE = 'virtual'
 # Encryption Settings (Passed globally to all objects)
 AWS_S3_OBJECT_PARAMETERS = {
     'ServerSideEncryption': 'aws:kms',
-    'SSEKMSKeyId': config['AWS_KMS_KEY_ARN'],
+    'SSEKMSKeyId': os.environ.get('AWS_KMS_KEY_ARN'),
 }
 
 STORAGES = {
@@ -130,10 +125,10 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'portfolio.db_backend',
-        'HOST': config['HOST'],
-        'PORT': config['PORT'],
-        'NAME': config['DBNAME'],
-        'USER': config['USER'],
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
+        'NAME': os.environ.get('DBNAME'),
+        'USER': os.environ.get('USER'),
         'PASSWORD': "", #password handled by backed wrapper
         'OPTIONS': {
             'sslmode': 'verify-full',
