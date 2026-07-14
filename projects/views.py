@@ -15,6 +15,10 @@ class HomePage(ListView):
         context['today'] = date.today()
         return context
     
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.order_by("-end_date", "-start_date")
+        
 class ProjectDetail(DetailView):
     model = Project
     slug_field = "slug"

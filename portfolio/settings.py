@@ -28,7 +28,20 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1']
+# Force HTTP to HTTPS redirection
+SECURE_SSL_REDIRECT = True
+
+# Secure cookies from being intercepted over HTTP
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# Enable HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Hosts
+ALLOWED_HOSTS = ['127.0.0.1', 'gshanley.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
