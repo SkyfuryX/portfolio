@@ -15,23 +15,27 @@
 </section>
 <div class="py-2 bg-body-tertiary">
   <div class="container">
-    <div class = "row">
-      <div class="col">
-        <img src={{object.images.cover_image.url}} class="img-fluid" alt="{{object.title}}">
+    <div class = "row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <img src={{object.images.cover_image.url}} class="img-fluid rounded py-3" alt="{{object.title}}">
       </div>
       <div class="col">
         <p><strong>Project Overview:</strong>{{object.description|linebreaks}}</p>
         <p><strong>Technolgies Used:</strong> {{object.tech}}</p>
-        <p class="text-center"><a href={{object.repo}} target= "_blank">View Project</p>
-        <p></p>
-        <p></p>
+        <p class="text-center"><a href={{object.repo}} target= "_blank">
+        <button
+          type="button"
+          class="btn btn-sm btn-success"
+        >
+          View Project
+        </button></a></p>
       </div>
     </div>
   </div>
   <hr style="color:gray">
   <div class="py-2 text-center">
     <a href={% url 'home' %}>
-      <button class="btn btn-primary text-center">Back</button>
+      <button class="btn btn-secondary text-center">Back</button>
       
     </a>
   </div>

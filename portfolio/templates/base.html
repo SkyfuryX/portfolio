@@ -200,9 +200,10 @@
             <div class="col-sm-8 col-md-7 py-4">
               <h4>About</h4>
               <p class="text-body-secondary">
-                I'm a junior backend developer with experience in Go, Python, SQL, and cloud technologies. 
-                Through the Boot.dev backend engineering curriculum and personal projects, I've built API-driven applications, database-backed services, and command-line tools while developing a strong foundation in backend engineering. 
-                I'm always looking for opportunities to tackle new technical challenges and continue growing as a software developer.              </p>
+                I am a junior backend developer with experience in Go, Python, SQL, and cloud technologies. 
+                Through the Boot.dev backend engineering curriculum and personal projects, I have built API-driven applications, database-backed services, and command-line tools while developing a strong foundation in backend engineering. 
+                I am always looking for opportunities to tackle new technical challenges and continue growing as a software developer.           
+              </p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <h4>Contact</h4>
@@ -213,7 +214,13 @@
                 {% if user.is_authenticated %}
                 </li><form method='post' action="{% url 'logout' %}">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-link">Logout</button>
+                  <a href={% url 'logout' %}>
+                  <button
+                    type="submit"
+                    class="btn btn-sm btn-secondary"
+                  >
+                    Logout
+                  </button></a>
                 </form></li>
                 {%endif%}
               </ul>
@@ -264,7 +271,7 @@
     </main>
     <footer class="text-body-secondary py-5">
       <div class="container">
-        <p class="float-end mb-1"><a href="#">Back to top</a></p>
+        <p class="float-start mb-1"><a href="#">Back to top</a></p>
       </div>
     </footer>
     <script

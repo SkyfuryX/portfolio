@@ -8,16 +8,17 @@
 <section class="py-5 text-center container">
     <div class="row py-lg-5"> 
       <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Back-end Developer:<br>Python & Golang</h1>
-          <p class="lead text-body-secondary">
-            I'm a junior backend developer with experience in Go, Python, SQL, and cloud technologies. 
-            Through the Boot.dev backend engineering curriculum and personal projects, I've built API-driven applications, database-backed services, and command-line tools while developing a strong foundation in backend engineering. 
-            I'm always looking for opportunities to tackle new technical challenges and continue growing as a software developer.          </p>
-          <p>
-              <a href="https://www.linkedin.com/in/gannon-shanley/" class="btn btn-primary my-2" target="_blank">LinkedIn</a>
-              <a href="https://github.com/SkyfuryX" class="btn btn-secondary my-2" target="_blank">Github</a>
-              {% comment %} <a href="mallto:gannonshanley@gmail.com" class="btn btn-success my-2">Contact Me</a> {% endcomment %}
-          </p>
+        <h1 class="fw-light">Back-end Developer:<br>Python & Golang</h1>
+        <p class="lead text-body-secondary">
+          I am a junior backend developer with experience in Go, Python, SQL, and cloud technologies. 
+          Through the Boot.dev backend engineering curriculum and personal projects, I have built API-driven applications, database-backed services, and command-line tools while developing a strong foundation in backend engineering. 
+          I am always looking for opportunities to tackle new technical challenges and continue growing as a software developer.        
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/gannon-shanley/" class="btn btn-primary my-2" target="_blank">LinkedIn</a>
+          <a href="https://github.com/SkyfuryX" class="btn btn-secondary my-2" target="_blank">Github</a>
+          {% comment %} <a href="mallto:gannonshanley@gmail.com" class="btn btn-success my-2">Contact Me</a> {% endcomment %}
+        </p>
       </div>
       <div class="col-lg-6 col-md-8 mx-auto">
         <p align="center">
@@ -26,57 +27,57 @@
       </div> 
     </div>
 </section>
-      <div class="album py-3 bg-body-tertiary">
-        {%if user.is_staff %}
-        <div class="text-center py-2">
-          <a href={% url 'newproj' %} class='btn btn-primary my-2'>Add New Project</a>
-          <a href={% url 'newimage' %} class='btn btn-secondary my-2'>Add Images</a>
-        </div>
-        {%endif%}
-        <div class="container">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            {% for p in projects %}
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="{{p.images.thumbnail.url}}" class="img-fluid rounded" >
-                <div class="card-body">
-                  <p class="card-text">
-                    {{p.title}}
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <a href={% url 'detail' p.slug %}>
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary"
-                      >
-                        View
-                      </button></a>
-                      {% if user.is_staff %}
-                      <a href={% url 'edit' slug=p.slug %}
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary"
-                      >
-                        Edit
-                      </button></a>
-                      {% endif %}
-                    </div>
-                    <small class="text-body-secondary">{{p.start_date.month}}/{{p.start_date.year}} - 
-                      {% if p.end_date > today %}
-                      Present
-                      {% else %}
-                      {{p.end_date.month}}/{{p.end_date.year}}
-                      {% endif %}
-                    </small>
-                  </div>
-                </div>
+<div class="album py-3 bg-body-tertiary">
+  {%if user.is_staff %}
+  <div class="text-center py-2">
+    <a href={% url 'newproj' %} class='btn btn-primary my-2'>Add New Project</a>
+    <a href={% url 'newimage' %} class='btn btn-secondary my-2'>Add Images</a>
+  </div>
+  {%endif%}
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for p in projects %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="{{p.images.thumbnail.url}}" class="img-fluid rounded" >
+          <div class="card-body">
+            <p class="card-text">
+              {{p.title}}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a href={% url 'detail' p.slug %}>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-secondary"
+                >
+                  View
+                </button></a>
+                {% if user.is_staff %}
+                <a href={% url 'edit' slug=p.slug %}
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                >
+                  Edit
+                </button></a>
+                {% endif %}
               </div>
+              <small class="text-body-secondary">{{p.start_date.month}}/{{p.start_date.year}} - 
+                {% if p.end_date > today %}
+                Present
+                {% else %}
+                {{p.end_date.month}}/{{p.end_date.year}}
+                {% endif %}
+              </small>
             </div>
-            {% endfor %}
           </div>
         </div>
       </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock main %}
 
 {% block body %}
