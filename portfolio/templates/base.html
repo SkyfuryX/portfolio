@@ -209,7 +209,7 @@
               <ul class="list-unstyled">
                 <li><a href="https://github.com/SkyfuryX" class="text-white" target="_blank">Follow me on Github</a></li>
                 <li><a href="https://www.linkedin.com/in/gannon-shanley/" class="text-white" target="_blank">Connect with me on LinkedIn</a></li>
-                <li><a href="mailto:gannonshanley@gmail.com" class="text-white">Email me</a></li>
+                {% comment %} <li><a href="mailto:gannonshanley@gmail.com" class="text-white">Email me</a></li> {% endcomment %}
                 {% if user.is_authenticated %}
                 </li><form method='post' action="{% url 'logout' %}">
                   {% csrf_token %}
